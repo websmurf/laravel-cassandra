@@ -1,6 +1,8 @@
 {
   "name": "websmurf/laravel-cassandra",
-  "description": "",
+  "description": "Cassandra wrapper for Laravel/Lumen",
+  "keywords": ["cassandra"],
+  "homepage": "https://github.com/websmurf/laravel-cassandra",
   "authors": [
     {
       "name": "Adam van Dongen",
@@ -8,8 +10,12 @@
     }
   ],
   "require": {
-    "php": ">=5.3.0",
+    "php": ">=5.5.0",
     "illuminate/support": "4.2.*"
   },
-  "minimum-stability": "dev"
+  "autoload": {
+    "psr-0": {
+      "Monolog": "src"
+    }
+  },
 }
