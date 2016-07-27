@@ -4,17 +4,22 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Node ip's
+    | Cassandra contact point ip(s)
     |--------------------------------------------------------------------------
     */
-    'nodes' => [
+    'contactpoints' => [
         '192.168.100.11'
     ],
 
-    /*
-    |--------------------------------------------------------------------------
-    | Default Keyspace
-    |--------------------------------------------------------------------------
-    */
+    /* cassandra port number */
+    'port' => 9042,
+
+    /* default page size */
+    'defaultPageSize' => 25,
+
+    /* default consistency level */
+    'withDefaultConsistency' => \Cassandra::CONSISTENCY_ALL,
+
+    /* default connection keyspace */
     'keyspace' => 'general'
 ];
