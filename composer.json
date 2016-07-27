@@ -12,11 +12,12 @@
   ],
   "require": {
     "php": ">=5.5.0",
-    "illuminate/support": "5.*"
+    "illuminate/support": "5.*",
+    "datastax/php-driver": "1.*"
   },
   "autoload": {
-    "psr-0": {
-      "Monolog": "src"
+    "psr-4": {
+      "Websmurf\\LavavelCassandra\\": "src"
     }
   }
 }
