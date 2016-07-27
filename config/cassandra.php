@@ -8,7 +8,7 @@ return [
     |--------------------------------------------------------------------------
     */
     'contactpoints' => [
-        '192.168.100.11'
+        '127.0.0.1'
     ],
 
     /* cassandra port number */
@@ -18,7 +18,7 @@ return [
     'defaultPageSize' => 25,
 
     /* default consistency level */
-    'withDefaultConsistency' => \Cassandra::CONSISTENCY_ALL,
+    'defaultConsistency' => \Cassandra::CONSISTENCY_ALL,
 
     /* default connection keyspace */
     'keyspace' => 'general'

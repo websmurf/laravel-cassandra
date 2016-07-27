@@ -12,18 +12,35 @@ class Cassandra
      */
     public function __construct()
     {
-        #set up connection details
-        $builder = \Cassandra::cluster()
-          ->withPort(9042)
-          ->withDefaultPageSize(24)
-          ->withDefaultConsistency(\Cassandra::CONSISTENCY_ALL);
+        // Set up connection details
+        $builder = \Cassandra::cluster();
 
-        $builder->withContactPoints('192.168.100.11');
+        // Fetch configured port and set it, if it's provided
+        $port = config('cassandra.port');
+        if(!empty($port))
+        {
+            $builder->withPort($port);
+        }
 
-        # connect to cluster
+        // Fetch configured default page size and set it, if it's provided
+        $defaultPageSize = config('cassandra.defaultPageSize');
+        if(!empty($defaultPageSize))
+        {
+            $builder->withDefaultPageSize($defaultPageSize);
+        }
+        
+        // Fetch configured default consistency level and set it, if it's provided
+        $defaultConsistency = config('cassandra.withDefaultConsistency');
+        if(!empty($defaultConsistency))
+        {
+            $builder->withDefaultConsistency($defaultConsistency);
+        }
+
+        // Set contact end points
+        call_user_func_array(array($builder, "withContactPoints"), config('cassandra.contactpoints'));
+
+        // Connect to cluster
         $this->connection = $builder->build();
-
-        var_dump(config('cassandra'));
     }
 
     public static function query()
