@@ -4,11 +4,14 @@ namespace Websmurf\LaravelCassandra;
 
 class Cassandra
 {
-    /** @var \Cassandra\Cluster cassandra cluster instance */
-    protected $connection;
+    /** @var \Cassandra\Cluster */
+    protected $cluster;
+
+    /** @var  /Cassandra\Session */
+    protected $session;
 
     /**
-     * Make connection to connection pool
+     * Create a new connection instance with the provided configuration
      */
     public function __construct()
     {
@@ -40,11 +43,33 @@ class Cassandra
         call_user_func_array(array($builder, "withContactPoints"), config('cassandra.contactpoints'));
 
         // Connect to cluster
-        $this->connection = $builder->build();
+        $this->cluster = $builder->build();
+
+        // Create a connect to the keyspace on cluster
+        $this->session = $this->cluster->connect(config('cassandra.keyspace'));
     }
 
-    public static function query()
+    /**
+     * Create a prepared statement
+     *
+     * @param string $cql
+     * @param \Cassandra\ExecutionOptions|null $options
+     * @return \Cassandra\PreparedStatement
+     */
+    public function prepare($cql, \Cassandra\ExecutionOptions $options = null)
     {
-        var_dump('boe');
+        $this->session->prepare($cql, $options);
+    }
+
+    /**
+     * Execute a cassandra query statement
+     *
+     * @param \Cassandra\Statement $statement
+     * @param \Cassandra\ExecutionOptions|null $options
+     * @return \Cassandra\Rows
+     */
+    public function execute(\Cassandra\Statement $statement, \Cassandra\ExecutionOptions $options = null)
+    {
+        return $this->session->execute($statement, $options);
     }
 }
