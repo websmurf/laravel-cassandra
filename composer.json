@@ -16,7 +16,7 @@
   },
   "autoload": {
     "psr-4": {
-      "Websmurf\\LavavelCassandra\\": "src"
+      "Websmurf\\LaravelCassandra\\": "src"
     }
   }
 }
