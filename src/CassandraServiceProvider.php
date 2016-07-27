@@ -6,6 +6,9 @@ use Illuminate\Support\ServiceProvider;
 
 class CassandraServiceProvider extends ServiceProvider
 {
+    /** @inheritdoc */
+    protected $defer = true;
+
     /**
      * Register the service provider.
      *
@@ -13,7 +16,17 @@ class CassandraServiceProvider extends ServiceProvider
      */
     public function register()
     {
+        // Attempt to load default configuration
+        $this->mergeConfigFrom(
+          __DIR__ . '/../config/cassandra.php', 'cassandra'
+        );
+
+        // Configure cassandra options
+        $this->app->configure('cassandra');
+
         // Register cassandra
-        $this->app->singleton(\Cassandra\Connection::class);
+        $this->app->singleton('Cassandra', function ($app) {
+            return new Cassandra();
+        });
     }
 }
