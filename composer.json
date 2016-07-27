@@ -3,6 +3,7 @@
   "description": "Cassandra wrapper for Laravel/Lumen",
   "keywords": ["cassandra"],
   "homepage": "https://github.com/websmurf/laravel-cassandra",
+  "license": "MIT",
   "authors": [
     {
       "name": "Adam van Dongen",
@@ -17,5 +18,5 @@
     "psr-0": {
       "Monolog": "src"
     }
-  },
+  }
 }
