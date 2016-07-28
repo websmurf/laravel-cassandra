@@ -58,7 +58,15 @@ class Cassandra
      */
     public function prepare($cql, \Cassandra\ExecutionOptions $options = null)
     {
-        $this->session->prepare($cql, $options);
+        // Crazy fall back due to checks in the datastax php library
+        if(is_null($options))
+        {
+            $statement = $this->session->prepare($cql);
+        } else {
+            $statement = $this->session->prepare($cql, $options);
+        }
+
+        return $statement;
     }
 
 
@@ -72,6 +80,14 @@ class Cassandra
      */
     public function execute(\Cassandra\Statement $statement, \Cassandra\ExecutionOptions $options = null)
     {
-        return $this->session->execute($statement, $options);
+        // Crazy fall back due to checks in the datastax php library
+        if(is_null($options))
+        {
+            $rows = $this->session->execute($statement);
+        } else {
+            $rows = $this->session->execute($statement, $options);
+        }
+
+        return $rows;
     }
 }
