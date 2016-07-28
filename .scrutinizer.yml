@@ -1,12 +1,7 @@
 checks:
     php: true
 filter: {  }
-coding_style:
-    php:
-        indentation:
-            general:
-                use_tabs: false
-        spaces:
-            around_operators:
-                negation: true
-                concatenation: true
+tools:
+    php_code_sniffer:
+        config:
+            standard: "PSR2"
