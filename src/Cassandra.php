@@ -4,11 +4,13 @@ namespace Websmurf\LaravelCassandra;
 
 class Cassandra
 {
+
     /** @var \Cassandra\Cluster */
     protected $cluster;
 
     /** @var  /Cassandra\Session */
     protected $session;
+
 
     /**
      * Create a new connection instance with the provided configuration
@@ -20,27 +22,24 @@ class Cassandra
 
         // Fetch configured port and set it, if it's provided
         $port = config('cassandra.port');
-        if(!empty($port))
-        {
+        if ( ! empty( $port )) {
             $builder->withPort($port);
         }
 
         // Fetch configured default page size and set it, if it's provided
         $defaultPageSize = config('cassandra.defaultPageSize');
-        if(!empty($defaultPageSize))
-        {
+        if ( ! empty( $defaultPageSize )) {
             $builder->withDefaultPageSize($defaultPageSize);
         }
-        
+
         // Fetch configured default consistency level and set it, if it's provided
         $defaultConsistency = config('cassandra.withDefaultConsistency');
-        if(!empty($defaultConsistency))
-        {
+        if ( ! empty( $defaultConsistency )) {
             $builder->withDefaultConsistency($defaultConsistency);
         }
 
         // Set contact end points
-        call_user_func_array(array($builder, "withContactPoints"), config('cassandra.contactpoints'));
+        call_user_func_array([ $builder, "withContactPoints" ], config('cassandra.contactpoints'));
 
         // Connect to cluster
         $this->cluster = $builder->build();
@@ -52,8 +51,9 @@ class Cassandra
     /**
      * Create a prepared statement
      *
-     * @param string $cql
+     * @param string                           $cql
      * @param \Cassandra\ExecutionOptions|null $options
+     *
      * @return \Cassandra\PreparedStatement
      */
     public function prepare($cql, \Cassandra\ExecutionOptions $options = null)
@@ -61,11 +61,13 @@ class Cassandra
         $this->session->prepare($cql, $options);
     }
 
+
     /**
      * Execute a cassandra query statement
      *
-     * @param \Cassandra\Statement $statement
+     * @param \Cassandra\Statement             $statement
      * @param \Cassandra\ExecutionOptions|null $options
+     *
      * @return \Cassandra\Rows
      */
     public function execute(\Cassandra\Statement $statement, \Cassandra\ExecutionOptions $options = null)
