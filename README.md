@@ -6,6 +6,9 @@ Laravel/Lumen wrapper for Cassandra
 Installation
 ----
 
+This packages uses the cassandra functionality provided by the Datastax php driver. 
+It needs to be installed before you will be able to use this package. See for more information: [http://datastax.github.io/php-driver/](http://datastax.github.io/php-driver/)
+
 Install using composer: 
 
 ```
