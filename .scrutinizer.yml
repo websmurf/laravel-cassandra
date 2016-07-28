@@ -5,3 +5,18 @@ tools:
     php_code_sniffer:
         config:
             standard: "PSR2"
+checks:
+    php:
+        code_rating: true
+        duplication: true
+        unused_methods: true
+        unused_parameters: true
+        argument_type_checks: true
+        verify_property_names: true
+        method_calls_on_non_object: true
+        fix_doc_comments: true
+        instanceof_class_exists: true
+        catch_class_exists: true
+        assignment_of_null_return: true
+        use_statement_alias_conflict: true
+    javascript: true
