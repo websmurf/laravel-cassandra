@@ -43,7 +43,6 @@ public function __construct(Cassandra $cassandra, Request $request)
 	$this->cassandra = $cassandra;
 }
 
-
 // Create prepared statement
 $prepared = $this->cassandra->prepare('THIS IS MY CQL STATEMENT');
 
