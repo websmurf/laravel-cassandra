@@ -1,6 +1,8 @@
 Laravel/Lumen wrapper for Cassandra
 =========
 
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/websmurf/laravel-cassandra/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/websmurf/laravel-cassandra/?branch=master)
+
 Installation
 ----
 
