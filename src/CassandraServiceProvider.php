@@ -25,7 +25,7 @@ class CassandraServiceProvider extends ServiceProvider
         $this->app->configure('cassandra');
 
         // Register cassandra
-        $this->app->singleton('Cassandra', function($app) {
+        $this->app->singleton('Cassandra', function() {
             return new Cassandra();
         });
     }
