@@ -3,8 +3,10 @@ checks:
 filter: {  }
 coding_style:
     php:
+        indentation:
+            general:
+                use_tabs: false
         spaces:
             around_operators:
+                negation: true
                 concatenation: true
-            within:
-                brackets: true
