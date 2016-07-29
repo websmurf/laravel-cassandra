@@ -24,7 +24,6 @@ checks:
     javascript: true
 build:
     tests:
-        - 'phpunit'
         override:
             - command: 'phpunit --coverage-clover=coverage'
               coverage:
