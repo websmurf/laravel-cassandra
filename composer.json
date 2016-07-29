@@ -22,5 +22,13 @@
     "psr-4": {
       "Websmurf\\LaravelCassandra\\": "src"
     }
+  },
+  "autoload-dev": {
+    "classmap": [
+      "tests/stubs/"
+    ],
+    "files": [
+      "tests/functions.php"
+    ]
   }
 }
