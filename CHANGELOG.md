@@ -1,3 +1,7 @@
+## 0.4.0
+
+- added unittests
+
 ## 0.3.0
 
 Bugfixes: 
