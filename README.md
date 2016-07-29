@@ -3,6 +3,7 @@ Laravel/Lumen wrapper for Cassandra
 
 [![Build Status](https://scrutinizer-ci.com/g/websmurf/laravel-cassandra/badges/build.png?b=master)](https://scrutinizer-ci.com/g/websmurf/laravel-cassandra/build-status/master)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/websmurf/laravel-cassandra/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/websmurf/laravel-cassandra/?branch=master)
+[![Code Coverage](https://scrutinizer-ci.com/g/websmurf/laravel-cassandra/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/websmurf/laravel-cassandra/?branch=master)
 
 Installation
 ----
