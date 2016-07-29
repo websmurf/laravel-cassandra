@@ -1,6 +1,8 @@
 checks:
     php: true
-filter: {  }
+filter:
+    excluded_paths:
+        - tests/*
 tools:
     php_code_sniffer:
         config:
