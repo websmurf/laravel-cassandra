@@ -22,3 +22,6 @@ checks:
         assignment_of_null_return: true
         use_statement_alias_conflict: true
     javascript: true
+build:
+    tests:
+        - 'phpunit'
